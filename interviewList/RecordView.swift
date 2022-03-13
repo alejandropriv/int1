@@ -7,19 +7,23 @@
 
 import SwiftUI
 
-struct SearchResultRow: View {
+/** Create a view for each record retrieved from the API
+ */
+struct RecordRowView: View {
     
-    let resultVM: SearchResultVM
+    let resultVM: RecordVM
     
     var body: some View {
         VStack(alignment: .leading) {
             
             Text(resultVM.name)
-                .font(.title)
+                .font(.system(size: 20.0))
                 .lineLimit(1)
             
+            //Show description in 2 lines
             Text(resultVM.description)
-                .font(.title2)
+                .fixedSize(horizontal: false, vertical: true)
+                .font(.system(size: 15.0))
                 .lineLimit(2)
 
             
@@ -48,7 +52,7 @@ struct SearchResultRow: View {
 
 struct SearchResultRow_Previews: PreviewProvider {
     static var previews: some View {
-        SearchResultRow(resultVM: SearchResultVM(
+        RecordRowView(resultVM: RecordVM(
             model: RepoModel.example)
         )
         .previewLayout(.fixed(width: 360, height: 120))

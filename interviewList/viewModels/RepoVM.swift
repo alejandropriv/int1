@@ -7,12 +7,19 @@
 
 import Foundation
 
-
-class RepoViewModel: ObservableObject {
+/**
+ Repo View Model
+ - Get and filter data from the github api
+ - In a bigger app: networking code could be moved to an independent controller class
+ */
+class RepoVM: ObservableObject {
     
     @Published var results = [RepoModel]()
+    
+    let requestedLang = "C#"
 
-    func performSearch() {
+    // Call the api and filter the results by the specified param: lang
+    func performAPICall() {
         
         let apiUrl = "https://api.github.com/users/MicrosoftLearning/repos"
         
@@ -26,9 +33,14 @@ class RepoViewModel: ObservableObject {
                 let response = try JSONDecoder()
                     .decode([RepoModel].self, from: data)
                 
+                //Asynchronous call to avoid blocking the UI
                 DispatchQueue.main.async { [weak self] in
 
-                    self?.results = response
+                    self?.results = response.filter { rec in
+                        return rec.language == self?.requestedLang
+                    }
+                    
+
                 }
             } catch {
                 print("Error info: \(error)")
@@ -40,7 +52,7 @@ class RepoViewModel: ObservableObject {
 }
 
 
-struct SearchResultVM {
+struct RecordVM {
     
     let model: RepoModel
     
@@ -72,6 +84,10 @@ struct SearchResultVM {
     
     var stargazers_count: String {
         return String(model.stargazers_count)
+    }
+    
+    var language: String{
+        model.language ?? ""
     }
 
 }

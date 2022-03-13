@@ -8,48 +8,60 @@
 import SwiftUI
 
 
-
+/** Define the list
+ hold the waiting and the error Views
+ 
+ }*/
 struct ContentView: View {
     
-    @StateObject private var repoViewModel = RepoViewModel()
+    //Binding for the RepoViewModel
+    @StateObject private var repoViewModel = RepoVM()
+    
+    //Switching between UI components
+    @State private var isLoaded = false
+
     
     init(){
+        // Change Title font characteristics
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Georgia-Bold", size: 15)!]
     }
-        
-        var body: some View {
+    
+    var body: some View {
+        if isLoaded {
+            
             NavigationView {
                 VStack {
-             
+                    
                     List {
-             
+                        // For each of the retrieved records generate a RecordView
                         ForEach(repoViewModel.results, id: \.id)
                         {
-                            let viewModel = SearchResultVM(model: $0)
-                            SearchResultRow(resultVM: viewModel)
-                            
+                            let viewModel = RecordVM(model: $0)
+                            RecordRowView(resultVM: viewModel)
                         }
                         
                     }
                     .listStyle(.inset)
                     
-                    Button {
-                        repoViewModel.performSearch()
-                    } label: {
-                        Text("SEARCH MUSIC")
-                            .frame(width: 250, height: 40)
-                    }
-                    .buttonStyle(.bordered)
-                    .padding(.bottom, 8)
                 }
                 .navigationBarTitle(Text("Microsoft Learning Repos").font(.subheadline), displayMode: .large)
-            }
+            
+            }.onAppear(perform: fetch)
+        
+        }else{
+            WaitingView()
         }
+            
+    }
+    
+    private func fetch() {
+        repoViewModel.performAPICall()
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-.previewInterfaceOrientation(.portrait)
+            .previewInterfaceOrientation(.portrait)
     }
 }

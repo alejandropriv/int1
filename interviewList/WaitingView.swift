@@ -7,7 +7,10 @@
 
 import SwiftUI
 
+// Waiting view, spinner to show progress
 struct WaitingView: View {
+    
+
     var body: some View {
         VStack {
             ProgressView()
@@ -16,6 +19,7 @@ struct WaitingView: View {
         }
     }
 }
+
 
 struct WaitingView_Previews: PreviewProvider {
     static var previews: some View {
