@@ -29,13 +29,16 @@ struct ContentView: View {
         
 
         NavigationView {
+            
+            if repoViewModel.onError.error == true{
                 
-                if repoViewModel.isLoaded == true {
+            }
+            else if repoViewModel.isLoaded == true {
 
-                    VStack {
+                VStack {
                         
-                        // Scrollable list
-                        ScrollView {
+                    // Scrollable list
+                    ScrollView {
                             // For each of the retrieved records generate a RecordView
                             ForEach(repoViewModel.results, id: \.id)
                             {

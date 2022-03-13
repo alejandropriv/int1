@@ -14,8 +14,17 @@ import Foundation
  */
 class RepoVM: ObservableObject {
     
+    //Github records
     @Published var results = [RepoModel]()
+    
+    // The records has been loaded
     @Published var isLoaded = false
+    
+    // an error has occurred
+    @Published var onError = AppError()
+    
+    // isLoaded and onError could be summarized on a ENUM
+
 
     
     let requestedLang = "C#"
@@ -47,6 +56,7 @@ class RepoVM: ObservableObject {
                 }
             } catch {
                 print("Error info: \(error)")
+                onError = AppError(error: true, errorDescription: "\(error)")
             }
         }
     }

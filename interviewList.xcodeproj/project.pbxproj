@@ -20,6 +20,7 @@
 		ED7EB4B827DDE75000114866 /* RepoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7EB4B727DDE75000114866 /* RepoModel.swift */; };
 		ED7EB4BE27DE06E900114866 /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = ED7EB4BD27DE06E900114866 /* sample.json */; };
 		ED7EB4C027DE081300114866 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7EB4BF27DE081300114866 /* RecordView.swift */; };
+		ED7EB4C527DE912200114866 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7EB4C427DE912200114866 /* AppError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		ED7EB4B727DDE75000114866 /* RepoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoModel.swift; sourceTree = "<group>"; };
 		ED7EB4BD27DE06E900114866 /* sample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sample.json; sourceTree = "<group>"; };
 		ED7EB4BF27DE081300114866 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
+		ED7EB4C427DE912200114866 /* AppError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 		ED7EB48227DDD31600114866 /* interviewList */ = {
 			isa = PBXGroup;
 			children = (
+				ED7EB4C427DE912200114866 /* AppError.swift */,
 				ED7EB4B627DDE72B00114866 /* models */,
 				ED7EB4B327DDE35100114866 /* viewModels */,
 				ED7EB48327DDD31600114866 /* interviewListApp.swift */,
@@ -296,6 +299,7 @@
 				ED7EB48627DDD31600114866 /* ContentView.swift in Sources */,
 				ED7EB4B527DDE36F00114866 /* RepoVM.swift in Sources */,
 				ED7EB4C027DE081300114866 /* RecordView.swift in Sources */,
+				ED7EB4C527DE912200114866 /* AppError.swift in Sources */,
 				ED7EB4B227DDDD3100114866 /* WaitingView.swift in Sources */,
 				ED7EB48427DDD31600114866 /* interviewListApp.swift in Sources */,
 				ED7EB4B827DDE75000114866 /* RepoModel.swift in Sources */,
