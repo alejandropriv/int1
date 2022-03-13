@@ -11,34 +11,32 @@ import Foundation
 class RepoViewModel: ObservableObject {
     
     @Published var results = [RepoModel]()
-    @Published var searchText: String = "" {
-        didSet { isSearchEnabled = (searchText.count > 2) }
-    }
-    @Published var isSearchEnabled = false
 
     func performSearch() {
         
-        let search = searchText.addingPercentEncoding(
-            withAllowedCharacters: .urlHostAllowed
-        ) ?? ""
+        let apiUrl = "https://api.github.com/users/MicrosoftLearning/repos"
         
         guard let gUrl = URL(
-            string: "https://itunes.apple.com/search?term=\(search)"
+            string: apiUrl
         ) else { return }
         
         Task {
             do {
                 let (data, _) = try await URLSession.shared.data(from: gUrl)
                 let response = try JSONDecoder()
-                    .decode(SearchResponse.self, from: data)
+                    .decode([RepoModel].self, from: data)
+                
                 DispatchQueue.main.async { [weak self] in
-                    self?.results = response.results ?? []
+
+                    self?.results = response
                 }
             } catch {
-                print("*** ERROR ***")
+                print("Error info: \(error)")
             }
         }
     }
+    
+    
 }
 
 
@@ -46,17 +44,34 @@ struct SearchResultVM {
     
     let model: RepoModel
     
-    var trackName: String {
-        model.trackName ?? ""
+    var name: String {
+        model.name
     }
     
-    var imgUrl: URL? {
-        URL(string: model.artworkUrl60 ?? "")
+    var description: String {
+        model.description ?? ""
     }
     
-    var fullPrice: String {
-        guard let gPrice = model.trackPrice,
-                let gCurrency = model.currency else { return "NA"}
-        return gPrice.formatted(.currency(code: gCurrency))
+    var createdAt: String {
+
+        let isoDate = model.created_at
+            //
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        //dateFormatter.dateFormat = "yyyy-MM-dd"
+        let formatter3 = DateFormatter()
+        formatter3.dateFormat = "HH:mm E, d MMM y"
+        let dateStr = formatter3.string(from: dateFormatter.date(from:isoDate)!)
+
+        
+        return dateStr
+
+        
     }
+    
+    var stargazers_count: String {
+        return String(model.stargazers_count)
+    }
+
 }

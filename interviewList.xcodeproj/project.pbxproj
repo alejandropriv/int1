@@ -18,6 +18,8 @@
 		ED7EB4B227DDDD3100114866 /* WaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7EB4B127DDDD3100114866 /* WaitingView.swift */; };
 		ED7EB4B527DDE36F00114866 /* RepoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7EB4B427DDE36F00114866 /* RepoViewModel.swift */; };
 		ED7EB4B827DDE75000114866 /* RepoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7EB4B727DDE75000114866 /* RepoModel.swift */; };
+		ED7EB4BE27DE06E900114866 /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = ED7EB4BD27DE06E900114866 /* sample.json */; };
+		ED7EB4C027DE081300114866 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7EB4BF27DE081300114866 /* RecordView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		ED7EB4B127DDDD3100114866 /* WaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingView.swift; sourceTree = "<group>"; };
 		ED7EB4B427DDE36F00114866 /* RepoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoViewModel.swift; sourceTree = "<group>"; };
 		ED7EB4B727DDE75000114866 /* RepoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoModel.swift; sourceTree = "<group>"; };
+		ED7EB4BD27DE06E900114866 /* sample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sample.json; sourceTree = "<group>"; };
+		ED7EB4BF27DE081300114866 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,10 +110,12 @@
 				ED7EB4B327DDE35100114866 /* viewModels */,
 				ED7EB48327DDD31600114866 /* interviewListApp.swift */,
 				ED7EB48527DDD31600114866 /* ContentView.swift */,
+				ED7EB4BF27DE081300114866 /* RecordView.swift */,
 				ED7EB4AF27DDDCFC00114866 /* ErrorUIView.swift */,
 				ED7EB4B127DDDD3100114866 /* WaitingView.swift */,
 				ED7EB48727DDD31800114866 /* Assets.xcassets */,
 				ED7EB48927DDD31800114866 /* Preview Content */,
+				ED7EB4BD27DE06E900114866 /* sample.json */,
 			);
 			path = interviewList;
 			sourceTree = "<group>";
@@ -261,6 +267,7 @@
 			files = (
 				ED7EB48B27DDD31800114866 /* Preview Assets.xcassets in Resources */,
 				ED7EB48827DDD31800114866 /* Assets.xcassets in Resources */,
+				ED7EB4BE27DE06E900114866 /* sample.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +295,7 @@
 				ED7EB4B027DDDCFC00114866 /* ErrorUIView.swift in Sources */,
 				ED7EB48627DDD31600114866 /* ContentView.swift in Sources */,
 				ED7EB4B527DDE36F00114866 /* RepoViewModel.swift in Sources */,
+				ED7EB4C027DE081300114866 /* RecordView.swift in Sources */,
 				ED7EB4B227DDDD3100114866 /* WaitingView.swift in Sources */,
 				ED7EB48427DDD31600114866 /* interviewListApp.swift in Sources */,
 				ED7EB4B827DDE75000114866 /* RepoModel.swift in Sources */,

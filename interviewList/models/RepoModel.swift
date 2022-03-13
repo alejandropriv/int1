@@ -8,19 +8,32 @@
 import Foundation
 
 struct SearchResponse: Codable {
-    let resultCount: Int?
     let results: [RepoModel]?
 }
 
 // MARK: - Repo Model
 struct RepoModel: Codable {
 
-    var trackId: Int?
-    var trackName: String?
-    var collectionName: String?
-    var trackPrice: Double?
-    var currency: String?
-    var artworkUrl60: String?
+    var id: Int
+    var name: String
+    var description: String?
+    var created_at: String
+    var stargazers_count: Int
+
+    
+    public init(id: Int,
+                name: String,
+                description: String?,
+                createdAt: String,
+                stars: Int) {
+        
+        self.id = id
+        self.name = name
+        self.description = description
+        self.stargazers_count = stars
+        self.created_at = createdAt
+        
+    }
 }
 
 
@@ -32,13 +45,15 @@ extension RepoModel {
     static var example: RepoModel {
 
         RepoModel(
-            trackId: 157487434,
-            trackName: "Home",
-            collectionName: "Joe Satriani",
-            trackPrice: 1.29,
-            currency: "USD",
-            artworkUrl60: "https://is5-ssl.mzstatic.com/image/thumb/Music113/v4/c4/c1/a2/c4c1a2ad-8777-20d8-a4ef-ecddabe0de1b/source/60x60bb.jpg"
+            
+            id: 123456,
+            name: "20483-Programming-in-C-Sharp",
+            description: "desc \n desc1",
+            createdAt: "2018-01-11T09:40:34Z",
+            stars: 1000
+            
         )
     }
 }
+
 #endif
