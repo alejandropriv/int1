@@ -7,10 +7,6 @@
 
 import Foundation
 
-struct SearchResponse: Codable {
-    let results: [RepoModel]?
-}
-
 /**
  Repo Model Used to get data from JSON
  created_at defined as string to comply with the json, then in the modelview is formatted accordingly

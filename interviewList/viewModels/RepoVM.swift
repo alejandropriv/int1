@@ -15,6 +15,8 @@ import Foundation
 class RepoVM: ObservableObject {
     
     @Published var results = [RepoModel]()
+    @Published var isLoaded = false
+
     
     let requestedLang = "C#"
 
@@ -39,6 +41,7 @@ class RepoVM: ObservableObject {
                     self?.results = response.filter { rec in
                         return rec.language == self?.requestedLang
                     }
+                    self?.isLoaded = true
                     
 
                 }

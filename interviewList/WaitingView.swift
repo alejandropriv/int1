@@ -16,7 +16,7 @@ struct WaitingView: View {
             ProgressView()
                // and if you want to be explicit / future-proof...
                // .progressViewStyle(CircularProgressViewStyle())
-        }
+        }.frame(width: .infinity, height: .infinity, alignment: .center)
     }
 }
 
