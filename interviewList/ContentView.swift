@@ -16,6 +16,7 @@ struct ContentView: View {
     
     //Binding for the RepoViewModel
     @StateObject private var repoVM = RepoVM()
+
     
     
     init(){
@@ -31,8 +32,10 @@ struct ContentView: View {
         NavigationView {
             
             if repoVM.onError.error == true{
+
                 ErrorUIView(error: repoVM.onError)
             }
+
 
             else if repoVM.isLoaded == true {
 
