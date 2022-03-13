@@ -21,6 +21,7 @@
 		ED7EB4BE27DE06E900114866 /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = ED7EB4BD27DE06E900114866 /* sample.json */; };
 		ED7EB4C027DE081300114866 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7EB4BF27DE081300114866 /* RecordView.swift */; };
 		ED7EB4C527DE912200114866 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7EB4C427DE912200114866 /* AppError.swift */; };
+		ED7EB4C727DE934E00114866 /* ErrorVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7EB4C627DE934E00114866 /* ErrorVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		ED7EB4BD27DE06E900114866 /* sample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sample.json; sourceTree = "<group>"; };
 		ED7EB4BF27DE081300114866 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		ED7EB4C427DE912200114866 /* AppError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		ED7EB4C627DE934E00114866 /* ErrorVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				ED7EB4B427DDE36F00114866 /* RepoVM.swift */,
+				ED7EB4C627DE934E00114866 /* ErrorVM.swift */,
 			);
 			path = viewModels;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				ED7EB4C527DE912200114866 /* AppError.swift in Sources */,
 				ED7EB4B227DDDD3100114866 /* WaitingView.swift in Sources */,
 				ED7EB48427DDD31600114866 /* interviewListApp.swift in Sources */,
+				ED7EB4C727DE934E00114866 /* ErrorVM.swift in Sources */,
 				ED7EB4B827DDE75000114866 /* RepoModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

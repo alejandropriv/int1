@@ -15,7 +15,9 @@ import SwiftUI
 struct ContentView: View {
     
     //Binding for the RepoViewModel
-    @StateObject private var repoViewModel = RepoVM()
+    @StateObject private var repoVM = RepoVM()
+    @StateObject private var errorVM = ErrorVM()
+
     
     
     init(){
@@ -30,17 +32,17 @@ struct ContentView: View {
 
         NavigationView {
             
-            if repoViewModel.onError.error == true{
-                
+            if repoVM.onError.error == true{
+                ErrorUIView(errorDescription: errorVM.errorStr)
             }
-            else if repoViewModel.isLoaded == true {
+            else if repoVM.isLoaded == true {
 
                 VStack {
                         
                     // Scrollable list
                     ScrollView {
                             // For each of the retrieved records generate a RecordView
-                            ForEach(repoViewModel.results, id: \.id)
+                            ForEach(repoVM.results, id: \.id)
                             {
                                 let viewModel = RecordVM(model: $0)
                                 RecordRowView(resultVM: viewModel)
@@ -59,7 +61,7 @@ struct ContentView: View {
     }
     
     private func fetch() {
-        repoViewModel.performAPICall()
+        repoVM.performAPICall()
     }
 }                                           
 
