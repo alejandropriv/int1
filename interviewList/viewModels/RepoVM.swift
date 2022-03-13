@@ -44,11 +44,14 @@ class RepoVM: ObservableObject {
                 let response = try JSONDecoder()
                     .decode([RepoModel].self, from: data)
                 
-                //Asynchronous call to avoid blocking the UI
+                //Asynchronous call to avoid blocking the UI, and being able to update the view
                 DispatchQueue.main.async { [weak self] in
 
-                    self?.results = response.filter { rec in
+                    let ghRecords = response.filter { rec in
                         return rec.language == self?.requestedLang
+                    }
+                    self?.results = ghRecords.sorted {
+                        $0.stargazers_count < $1.stargazers_count
                     }
                     self?.isLoaded = true
                     
@@ -56,7 +59,9 @@ class RepoVM: ObservableObject {
                 }
             } catch {
                 print("Error info: \(error)")
-                onError = AppError(error: true, errorDescription: "\(error)")
+                DispatchQueue.main.async { [weak self] in
+                    self?.onError = AppError(error: true, errorDescription: "\(error)")
+                }
             }
         }
     }
