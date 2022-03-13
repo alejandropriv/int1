@@ -7,6 +7,11 @@
 
 import Foundation
 
+struct SearchResponse: Codable {
+    let resultCount: Int?
+    let results: [RepoModel]?
+}
+
 // MARK: - Repo Model
 struct RepoModel: Codable {
 
@@ -17,6 +22,8 @@ struct RepoModel: Codable {
     var currency: String?
     var artworkUrl60: String?
 }
+
+
 
 #if DEBUG
 // MARK: - Repo Item
