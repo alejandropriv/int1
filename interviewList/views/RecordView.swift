@@ -16,31 +16,41 @@ struct RecordRowView: View {
     var body: some View {
         VStack(alignment: .leading) {
             
-            Text(resultVM.name)
-                .font(.system(size: 20.0))
-                .lineLimit(1)
+            HStack {
+//                Text(String("Fn: "))
+//                    .font(.system(size: 20.0))
+//                    .lineLimit(1)
+//                    .opacity(0.6)
+                
+                Text(String(resultVM.flightNumber))
+                    .font(.system(size: 20.0))
+                    .lineLimit(1)
+                
+                Spacer()
+                
+                Text(resultVM.name)
+                    .font(.system(size: 20.0))
+                    .lineLimit(1)
+                
+                Spacer()
+                
+                Text(resultVM.name)
+                    .font(.system(size: 20.0))
+                    .lineLimit(1)
+                
+            }
             
             //Show description in 2 lines
-            Text(resultVM.description)
-                .fixedSize(horizontal: false, vertical: true)
-                .font(.system(size: 15.0))
-                .lineLimit(2)
+//            Text(resultVM.description)
+//                .fixedSize(horizontal: false, vertical: true)
+//                .font(.system(size: 15.0))
+//                .lineLimit(2)
 
             
             HStack {
-                Text(resultVM.createdAt)
+                Text(resultVM.name)
                     .font(.caption2)
-                Spacer()
 
-                Text(resultVM.stargazers_count)
-                    .font(.caption2.weight(.light))
-                
-                Image(systemName: "star.fill")
-                    .foregroundColor(Color.yellow)
-                    .background()
-                
-                .frame(width: 50, height: 50)
-                .cornerRadius(10)
             }
 
 
@@ -53,7 +63,7 @@ struct RecordRowView: View {
 struct SearchResultRow_Previews: PreviewProvider {
     static var previews: some View {
         RecordRowView(resultVM: RecordVM(
-            model: RepoModel.repoModelData1)
+            model: FlightModel.flightModelData1)
         )
         .previewLayout(.fixed(width: 360, height: 120))
     }

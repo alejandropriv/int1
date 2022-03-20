@@ -7,19 +7,18 @@
 
 #if DEBUG
 
-extension RepoModel {
+extension FlightModel {
     
     // this var is used for SwiftUI previewing
-    static var repoModelData1: RepoModel {
+    static var flightModelData1: FlightModel {
 
-        RepoModel(
+        FlightModel(
             
-            id: 123456,
-            name: "20483-Programming-in-C-Sharp",
-            description: "desc \n desc1",
-            language: "C#",
-            stargazers_count: 1000,
-            created_at: "2018-01-11T09:40:34Z"
+            id: "1",
+            name: "FalconSat",
+            flight_number: 1,
+            //logoUrl: "https://images2.imgbox.com/3c/0e/T8iJcSN3_o.png",
+            date_unix: 1143239400
 
         )
     }
@@ -33,10 +32,10 @@ extension RepoModel {
 extension RecordVM {
     
     // this var is used for SwiftUI previewing
-    static var repoVMData1: RepoVM {
+    static var repoVMData1: FlightVM {
         
-        let repoVM = RepoVM()
-        repoVM.results = [RepoModel.repoModelData1, RepoModel.repoModelData1, RepoModel.repoModelData1]
+        let repoVM = FlightVM()
+        repoVM.results = [FlightModel.flightModelData1, FlightModel.flightModelData1, FlightModel.flightModelData1]
         return repoVM
     
     }

@@ -17,7 +17,7 @@ struct ContainerView: View {
     @State private var appError: AppError
     
     //Binding for the RepoViewModel
-    @StateObject private var repoVM = RepoVM()
+    @StateObject private var repoVM = FlightVM()
 
 
 
@@ -26,7 +26,7 @@ struct ContainerView: View {
     
     init(){
         // Change Title font characteristics
-        UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Georgia-Bold", size: 15)!]
+        UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Georgia-Bold", size: 25)!]
         
         appError = AppError()
         

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    let repoVM: RepoVM
+    let repoVM: FlightVM
     
     var body: some View {
         
@@ -24,7 +24,6 @@ struct ContentView: View {
                     RecordRowView(resultVM: viewModel)
                     
                 }
-                    
             }
         }
     }

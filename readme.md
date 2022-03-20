@@ -1,1 +1,1 @@
-Please run test set interviewListUITests
+1. For complex JSON objects you may use Objet Mapper library
