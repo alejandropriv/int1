@@ -46,14 +46,14 @@ struct RecordRowView: View {
 
                 
         }.padding()
-        .frame( height: 120)
+            .frame( minWidth: 250, idealWidth: .infinity, maxWidth: .infinity, minHeight:120, idealHeight: 120, maxHeight: 120, alignment: .center )
     }
 }
 
 struct SearchResultRow_Previews: PreviewProvider {
     static var previews: some View {
         RecordRowView(resultVM: RecordVM(
-            model: RepoModel.example)
+            model: RepoModel.repoModelData1)
         )
         .previewLayout(.fixed(width: 360, height: 120))
     }

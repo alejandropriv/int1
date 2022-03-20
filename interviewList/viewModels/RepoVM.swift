@@ -18,7 +18,7 @@ class RepoVM: ObservableObject {
     @Published var results = [RepoModel]()
     
     // The records has been loaded
-    @Published var isLoaded = false
+    @Published var appState = Constants.AppState.loading
     
     // an error has occurred
     @Published var onError = AppError()
@@ -53,20 +53,19 @@ class RepoVM: ObservableObject {
                     self?.results = ghRecords.sorted {
                         $0.stargazers_count < $1.stargazers_count
                     }
-                    self?.isLoaded = true
+                    self?.appState = .success
                     
-
                 }
             } catch {
                 print("Error info: \(error)")
                 DispatchQueue.main.async { [weak self] in
                     self?.onError = AppError(error: true, errorDescription: "\(error)")
+                    self?.appState = .failed
+
                 }
             }
         }
     }
-    
-    
 }
 
 

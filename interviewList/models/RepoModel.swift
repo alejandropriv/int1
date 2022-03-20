@@ -38,26 +38,3 @@ struct RepoModel: Codable {
         
     }
 }
-
-
-
-#if DEBUG
-
-extension RepoModel {
-    
-    static var example: RepoModel {
-
-        RepoModel(
-            
-            id: 123456,
-            name: "20483-Programming-in-C-Sharp",
-            description: "desc \n desc1",
-            language: "C#",
-            stargazers_count: 1000,
-            created_at: "2018-01-11T09:40:34Z"
-
-        )
-    }
-}
-
-#endif
