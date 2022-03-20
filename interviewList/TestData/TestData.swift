@@ -11,16 +11,20 @@ extension FlightModel {
     
     // this var is used for SwiftUI previewing
     static var flightModelData1: FlightModel {
-
-        FlightModel(
+        let patch = Patch(small: "https://images2.imgbox.com/3c/0e/T8iJcSN3_o.png", large: "")
+        let links = Links(patch: patch)
+        
+        let flightModel = FlightModel(
             
-            id: "1",
+            links: links,
             name: "FalconSat",
-            flight_number: 1,
+            flightNumber: 1,
             //logoUrl: "https://images2.imgbox.com/3c/0e/T8iJcSN3_o.png",
-            date_unix: 1143239400
+            dateUnix: 1143239400,
+            id: "1"
 
         )
+        return flightModel
     }
 }
 
@@ -34,9 +38,9 @@ extension RecordVM {
     // this var is used for SwiftUI previewing
     static var repoVMData1: FlightVM {
         
-        let repoVM = FlightVM()
-        repoVM.results = [FlightModel.flightModelData1, FlightModel.flightModelData1, FlightModel.flightModelData1]
-        return repoVM
+        let flightVM = FlightVM()
+        flightVM.results = [FlightModel.flightModelData1, FlightModel.flightModelData1, FlightModel.flightModelData1]
+        return flightVM
     
     }
 }

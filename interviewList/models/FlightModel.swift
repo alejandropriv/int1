@@ -13,24 +13,35 @@ import Foundation
  **/
 struct FlightModel: Codable {
 
-    var id: String
+    let links: Links
     var name: String
-    var flight_number: Int
-    //var logoUrl: String?
-    var date_unix: Double
+    var flightNumber: Int
+    var dateUnix: Int
+    var id: String
+
+
+    enum CodingKeys: String, CodingKey {
+        case links
+        case flightNumber = "flight_number"
+        case name
+        case dateUnix = "date_unix"
+        case id
+    }
     
-    public init( id: String,
-                 name: String,
-                 flight_number: Int,
-                 //logoUrl: String?,
-                 date_unix: Double
-                ) {
-        
-        self.id = id
-        self.name = name
-        self.flight_number = flight_number
-        //self.logoUrl = logoUrl
-        self.date_unix = date_unix
-        
+}
+
+
+struct Links: Codable {
+    let patch: Patch
+
+    enum CodingKeys: String, CodingKey {
+        case patch
     }
 }
+
+struct Patch: Codable {
+    let small, large: String?
+}
+
+
+

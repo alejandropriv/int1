@@ -71,21 +71,38 @@ class FlightVM: ObservableObject {
 struct RecordVM {
     
     let model: FlightModel
+  
+  var id: String{
+    model.id
+  }
     
     var name: String {
         model.name
     }
     
     var flightNumber: Int{
-        model.flight_number
+        model.flightNumber
     }
-
-//    var logoUrl: String{
-//        model.logoUrl ?? "https://images2.imgbox.com/3c/0e/T8iJcSN3_o.png"
-//    }
     
-    var dateUnix: Date{
-        Date(timeIntervalSince1970: model.date_unix)
+    var localDate: String{
+        
+        // Create Date
+        let date = Date()
+        // Create Date Formatter
+        let dateFormatter = DateFormatter()
+        // Set Date Format
+        dateFormatter.dateFormat = "YY, MMM d, hh:mm"
+        // Convert Date to String
+        
+        let localDate = dateFormatter.string(from: date)
+    
+        
+        return localDate
+        
+    }
+    
+    var imgUrl: URL? {
+        URL(string: model.links.patch.small ?? "")
     }
     
     
