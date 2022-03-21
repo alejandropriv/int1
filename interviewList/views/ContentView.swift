@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
   
-  let flightVM: FlightVM
+  @StateObject var flightVM: FlightVM
   
   var body: some View {
     

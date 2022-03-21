@@ -63,16 +63,20 @@ struct ContainerView: View {
               }
             }.padding()
             
-//            Button {
-//              flightVM.performAPICall()
-//            } label: {
-//                Text("Search Launches")
-//                    .frame(width: 250, height: 40)
-//            }
-//            .buttonStyle(.bordered)
-//            .disabled(!flightVM.isSearchEnabled)
-//            .padding(.bottom, 8)
+//            HStack{
+//              Button {
+//                //flightVM.orderByDate()
+//              } label: {
+//                  Text("date >")
+//                  .frame(width: 50, height: 25, alignment: .leading)
+//              }
+//              .buttonStyle(.bordered)
+//              .padding()
 //
+//              Spacer()
+//            }
+            
+
 
             ContentView(flightVM: flightVM)
 

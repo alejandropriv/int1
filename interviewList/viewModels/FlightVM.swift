@@ -33,11 +33,8 @@ class FlightVM: ObservableObject {
     }
   }
   @Published var isSearchEnabled = false
-  
-  // isLoaded and onError could be summarized on a ENUM
-  
-  
-  
+    
+
   // Call the api and filter the results by the specified param: lang
   func performAPICall() {
     
@@ -62,9 +59,7 @@ class FlightVM: ObservableObject {
               return rec.name.contains(self?.searchText ?? "")
             }
           }
-          
-          print (ghRecords)
-          
+                    
           self?.results = ghRecords
 
           self?.appState = .success
@@ -101,12 +96,11 @@ struct RecordVM {
   
   var localDate: String{
     
-    // Create Date
-    let date = Date()
+    let date = Date(timeIntervalSince1970: TimeInterval(model.dateUnix))
     // Create Date Formatter
     let dateFormatter = DateFormatter()
     // Set Date Format
-    dateFormatter.dateFormat = "YY, MMM d, hh:mm"
+    dateFormatter.dateFormat = "d.MMM.YYYY hh:mm"
     // Convert Date to String
     
     let localDate = dateFormatter.string(from: date)

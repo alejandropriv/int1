@@ -7,10 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED2A7D6727E8153A0012EEE2 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED476AF327E73EC4002F5B9E /* TestData.swift */; };
+		ED2A7D6827E815950012EEE2 /* FlightModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7EB4B727DDE75000114866 /* FlightModel.swift */; };
+		ED2A7D6927E818B70012EEE2 /* FlightVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7EB4B427DDE36F00114866 /* FlightVM.swift */; };
+		ED2A7D6A27E819010012EEE2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED476AEE27E7249A002F5B9E /* Constants.swift */; };
+		ED2A7D6B27E8191A0012EEE2 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7EB4C427DE912200114866 /* AppError.swift */; };
 		ED476AEB27E71066002F5B9E /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED476AEA27E71066002F5B9E /* ContainerView.swift */; };
 		ED476AED27E71129002F5B9E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED476AEC27E71129002F5B9E /* ContentView.swift */; };
 		ED476AEF27E7249A002F5B9E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED476AEE27E7249A002F5B9E /* Constants.swift */; };
 		ED476AF427E73EC4002F5B9E /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED476AF327E73EC4002F5B9E /* TestData.swift */; };
+		ED476AF627E80E3A002F5B9E /* Test1.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED476AF527E80E3A002F5B9E /* Test1.swift */; };
 		ED7EB48427DDD31600114866 /* interviewListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7EB48327DDD31600114866 /* interviewListApp.swift */; };
 		ED7EB48827DDD31800114866 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED7EB48727DDD31800114866 /* Assets.xcassets */; };
 		ED7EB48B27DDD31800114866 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED7EB48A27DDD31800114866 /* Preview Assets.xcassets */; };
@@ -46,6 +52,7 @@
 		ED476AEC27E71129002F5B9E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		ED476AEE27E7249A002F5B9E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ED476AF327E73EC4002F5B9E /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
+		ED476AF527E80E3A002F5B9E /* Test1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test1.swift; sourceTree = "<group>"; };
 		ED7EB48027DDD31600114866 /* interviewList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = interviewList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED7EB48327DDD31600114866 /* interviewListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = interviewListApp.swift; sourceTree = "<group>"; };
 		ED7EB48727DDD31800114866 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -163,6 +170,7 @@
 		ED7EB49327DDD31800114866 /* interviewListTests */ = {
 			isa = PBXGroup;
 			children = (
+				ED476AF527E80E3A002F5B9E /* Test1.swift */,
 			);
 			path = interviewListTests;
 			sourceTree = "<group>";
@@ -262,6 +270,7 @@
 					};
 					ED7EB48F27DDD31800114866 = {
 						CreatedOnToolsVersion = 13.2.1;
+						LastSwiftMigration = 1320;
 						TestTargetID = ED7EB47F27DDD31600114866;
 					};
 					ED7EB49927DDD31800114866 = {
@@ -340,6 +349,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED2A7D6A27E819010012EEE2 /* Constants.swift in Sources */,
+				ED2A7D6827E815950012EEE2 /* FlightModel.swift in Sources */,
+				ED2A7D6B27E8191A0012EEE2 /* AppError.swift in Sources */,
+				ED476AF627E80E3A002F5B9E /* Test1.swift in Sources */,
+				ED2A7D6927E818B70012EEE2 /* FlightVM.swift in Sources */,
+				ED2A7D6727E8153A0012EEE2 /* TestData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,15 +561,22 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XZF293DSL4;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = personal.interviewListTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/interviewList.app/interviewList";
@@ -566,11 +588,17 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XZF293DSL4;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = personal.interviewListTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
