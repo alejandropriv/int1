@@ -17,7 +17,7 @@ struct ContainerView: View {
   @State private var appError: AppError
   
   //Binding for the RepoViewModel
-  @StateObject private var repoVM = FlightVM()
+  @StateObject private var flightVM = FlightVM()
   
   
   
@@ -26,7 +26,7 @@ struct ContainerView: View {
   
   init(){
     // Change Title font characteristics
-    UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Georgia-Bold", size: 35)!]
+    UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Georgia-Bold", size: 25)!]
     
     appError = AppError()
     
@@ -42,17 +42,42 @@ struct ContainerView: View {
     NavigationView {
       
       Group{
-        switch repoVM.appState{
+        switch flightVM.appState{
         case .loading:
           WaitingView()
           
         case .success:
-//          TextField(
-//            "Hint Text",
-//            text: "aaaaa"
-//          ).padding()
+
+          VStack {
+            HStack {
+              TextField("Search text", text: $flightVM.searchText)
+                  .textFieldStyle(.roundedBorder)
+              
+              if flightVM.isSearchEnabled {
+                  Image(systemName: "checkmark.circle.fill")
+                      .foregroundColor(.green)
+
+              } else {
+                  Image(systemName: "x.circle.fill")
+                      .foregroundColor(.red)
+              }
+            }.padding()
+            
+//            Button {
+//              flightVM.performAPICall()
+//            } label: {
+//                Text("Search Launches")
+//                    .frame(width: 250, height: 40)
+//            }
+//            .buttonStyle(.bordered)
+//            .disabled(!flightVM.isSearchEnabled)
+//            .padding(.bottom, 8)
+//
+
+            ContentView(flightVM: flightVM)
+
+          }
           
-          ContentView(flightVM: repoVM)
           
         case .failed:
           ErrorUIView(error: appError ) //"repoVM.onError"
@@ -69,7 +94,7 @@ struct ContainerView: View {
   
   
   private func fetch() {
-    repoVM.performAPICall()
+    flightVM.performAPICall()
   }
 }
 

@@ -13,11 +13,8 @@ struct ContentView: View {
   
   var body: some View {
     
-    
-    VStack {
-      
-      // Scrollable list
-      ScrollView {
+    List{
+        // Scrollable list
         
         // For each of the retrieved records generate a RecordView
         ForEach(Array(zip(1..., flightVM.results)), id: \.0){ index, item in
@@ -25,10 +22,11 @@ struct ContentView: View {
           let viewModel = RecordVM(model: item)
           RecordRowView(resultVM: viewModel)
             .background(( index  % 2 == 0) ? Color(red: 0.7, green: 0.8, blue: 0.9) : Color(.white))
+            .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
           
         }
-      }
-    }
+      
+    }.listStyle(PlainListStyle())
   }
 }
 
